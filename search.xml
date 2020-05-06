@@ -87,10 +87,10 @@
 <a id="more"></a>
 
 <blockquote>
-<p>题目中定义二叉树直径为二叉树中两个节点间的最长距离</p>
+<p>题目中定义二叉树直径为二叉树中任意两个节点间的最长距离</p>
 </blockquote>
 <ul>
-<li><p>从底到上（避免子树高度的重复判断），依次计算通过每个子树跟节点p的最长路径，即$p.length=max(height(p.left), height(p.right))+1$ 取所有p最大值即</p>
+<li><p>从底到上（避免子树高度的重复计算）依次计算通过每个子树跟节点p的最长路径，即$p.length=max(height(p.left), height(p.right))+1$ 取所有p最大值即</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> res;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">diameterOfBinaryTree</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode* u)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!u) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> l = dfs(u-&gt;left);</span><br><span class="line">        <span class="keyword">int</span> r = dfs(u-&gt;right);</span><br><span class="line">        res = <span class="built_in">max</span>(res, l + r);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(l, r) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 </li>
