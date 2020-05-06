@@ -4,7 +4,7 @@
     <title>Hello World</title>
     <url>/2020/05/05/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
+<a id="more"></a> 
 
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
@@ -19,5 +19,42 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>LeetCode 104. Maximum Depth of Binary Tree</title>
+    <url>/2020/05/05/LeetCode-104-Maximum-Depth-of-Binary-Tree/</url>
+    <content><![CDATA[<h2 id="树的最大高度"><a href="#树的最大高度" class="headerlink" title="树的最大高度"></a>树的最大高度</h2><p>题目链接 <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/description/" target="_blank" rel="noopener">LeetCode 104. Maximum Depth of Binary Tree</a></p>
+<a id="more"></a>
+
+<blockquote>
+<p>注意：本题的根节点深度定义为1</p>
+</blockquote>
+<ul>
+<li><p>分治，代码简洁易懂</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(maxDepth(root-&gt;left), maxDepth(root-&gt;right)) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>DFS深度优先搜索</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> depth;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        dfs(root, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> depth;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode* u, <span class="keyword">int</span> cur_depth)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!u) <span class="keyword">return</span>;</span><br><span class="line">        depth = <span class="built_in">max</span>(depth, cur_depth);</span><br><span class="line">        <span class="keyword">if</span>(u-&gt;left) dfs(u-&gt;left, cur_depth+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(u-&gt;right) dfs(u-&gt;right, cur_depth+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>使用栈代替尾递归的DFS算法，用栈保存根到子节点的路径，栈内元素最大数量即为树的高度</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> depth;</span><br><span class="line">        <span class="built_in">stack</span>&lt;TreeNode*&gt; st;</span><br><span class="line">        <span class="keyword">while</span>(root) &#123;</span><br><span class="line">            st.push(root);</span><br><span class="line">            root = root-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        depth = st.<span class="built_in">size</span>();</span><br><span class="line">        TreeNode* last = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">while</span>(!st.empty()) &#123;</span><br><span class="line">            TreeNode* t = st.top();</span><br><span class="line">            <span class="keyword">if</span>(t-&gt;right &amp;&amp; t-&gt;right != last) &#123;</span><br><span class="line">                TreeNode* p = t-&gt;right;</span><br><span class="line">                <span class="keyword">while</span>(p) &#123;</span><br><span class="line">                    st.push(p);</span><br><span class="line">                    p = p-&gt;left;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                last = st.top();</span><br><span class="line">                st.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            depth = <span class="built_in">max</span>(depth, (<span class="keyword">int</span>)st.<span class="built_in">size</span>());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> depth;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>BFS广度优先搜索，使用两个队列模拟层数</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">deque</span>&lt;TreeNode*&gt; q;</span><br><span class="line">        <span class="keyword">int</span> depth = <span class="number">0</span>;</span><br><span class="line">        q.push_back(root);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(!q.empty()) &#123;</span><br><span class="line">            <span class="built_in">deque</span>&lt;TreeNode*&gt; t;</span><br><span class="line">            <span class="keyword">while</span>(!q.empty()) &#123;</span><br><span class="line">                TreeNode* p = q.front();</span><br><span class="line">                q.pop_front();</span><br><span class="line">                <span class="keyword">if</span>(p-&gt;left) t.push_back(p-&gt;left);</span><br><span class="line">                <span class="keyword">if</span>(p-&gt;right) t.push_back(p-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">            q = t;</span><br><span class="line">            depth++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> depth;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>树</category>
+      </categories>
+      <tags>
+        <tag>树</tag>
+        <tag>递归</tag>
+        <tag>Easy</tag>
+      </tags>
   </entry>
 </search>
