@@ -20,19 +20,21 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="树的直径题目链接LeetCode 543. Diameter of Binary Tree  题目中定义二叉树直径为二叉树中两个节点间的最长距离   从底到上（避免子树高度的重复判断），依次计算通过每个子树跟节点p的最长路径，即$p.length&#x3D;max(height(p.left), height(p.right))+1$ 取所有p最大值即 12345678910111213141516clas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2020/05/05/hello-world/index.html">
+<meta property="og:title" content="LeetCode 543. Diameter of Binary Tree">
+<meta property="og:url" content="http://yoursite.com/2020/05/06/LeetCode-543-Diameter-of-Binary-Tree/index.html">
 <meta property="og:site_name" content="CYY&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="树的直径题目链接LeetCode 543. Diameter of Binary Tree  题目中定义二叉树直径为二叉树中两个节点间的最长距离   从底到上（避免子树高度的重复判断），依次计算通过每个子树跟节点p的最长路径，即$p.length&#x3D;max(height(p.left), height(p.right))+1$ 取所有p最大值即 12345678910111213141516clas">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-05T02:46:02.029Z">
-<meta property="article:modified_time" content="2020-05-05T11:12:58.276Z">
+<meta property="article:published_time" content="2020-05-06T13:15:26.000Z">
+<meta property="article:modified_time" content="2020-05-06T13:23:42.367Z">
 <meta property="article:author" content="CSUN">
+<meta property="article:tag" content="树">
+<meta property="article:tag" content="Easy">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/05/05/hello-world/">
+<link rel="canonical" href="http://yoursite.com/2020/05/06/LeetCode-543-Diameter-of-Binary-Tree/">
 
 
 <script id="page-configurations">
@@ -45,7 +47,7 @@
   };
 </script>
 
-  <title>Hello World | CYY's Blog</title>
+  <title>LeetCode 543. Diameter of Binary Tree | CYY's Blog</title>
   
 
 
@@ -195,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/05/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/06/LeetCode-543-Diameter-of-Binary-Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -208,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          LeetCode 543. Diameter of Binary Tree
         </h1>
 
         <div class="post-meta">
@@ -219,7 +221,16 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-05-05 10:46:02 / Modified: 19:12:58" itemprop="dateCreated datePublished" datetime="2020-05-05T10:46:02+08:00">2020-05-05</time>
+              <time title="Created: 2020-05-06 21:15:26 / Modified: 21:23:42" itemprop="dateCreated datePublished" datetime="2020-05-06T21:15:26+08:00">2020-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
             </span>
 
           
@@ -233,21 +244,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a> 
+        <h2 id="树的直径"><a href="#树的直径" class="headerlink" title="树的直径"></a>树的直径</h2><p>题目链接<a href="https://leetcode.com/problems/diameter-of-binary-tree/" target="_blank" rel="noopener">LeetCode 543. Diameter of Binary Tree</a></p>
+<blockquote>
+<p>题目中定义二叉树直径为二叉树中两个节点间的最长距离</p>
+</blockquote>
+<ul>
+<li><p>从底到上（避免子树高度的重复判断），依次计算通过每个子树跟节点p的最长路径，即$p.length=max(height(p.left), height(p.right))+1$ 取所有p最大值即</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> res;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">diameterOfBinaryTree</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode* u)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!u) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> l = dfs(u-&gt;left);</span><br><span class="line">        <span class="keyword">int</span> r = dfs(u-&gt;right);</span><br><span class="line">        res = <span class="built_in">max</span>(res, l + r);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(l, r) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+</li>
+</ul>
 
     </div>
 
@@ -256,17 +262,22 @@
     
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 树</a>
+              <a href="/tags/Easy/" rel="tag"><i class="fa fa-tag"></i> Easy</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/05/05/LeetCode-104-Maximum-Depth-of-Binary-Tree/" rel="next" title="LeetCode 104. Maximum Depth of Binary Tree">
-      LeetCode 104. Maximum Depth of Binary Tree <i class="fa fa-chevron-right"></i>
+    <a href="/2020/05/06/LeetCode-110-Balanced-Binary-Tree/" rel="prev" title="LeetCode 110. Balanced Binary Tree">
+      <i class="fa fa-chevron-left"></i> LeetCode 110. Balanced Binary Tree
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -325,7 +336,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树的直径"><span class="nav-number">1.</span> <span class="nav-text">树的直径</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
