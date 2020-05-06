@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/05/05/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a> 
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>LeetCode 104. Maximum Depth of Binary Tree</title>
     <url>/2020/05/05/LeetCode-104-Maximum-Depth-of-Binary-Tree/</url>
     <content><![CDATA[<h2 id="树的最大高度"><a href="#树的最大高度" class="headerlink" title="树的最大高度"></a>树的最大高度</h2><p>题目链接 <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/description/" target="_blank" rel="noopener">LeetCode 104. Maximum Depth of Binary Tree</a></p>
@@ -58,6 +38,30 @@
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 543. Diameter of Binary Tree</title>
+    <url>/2020/05/06/LeetCode-543-Diameter-of-Binary-Tree/</url>
+    <content><![CDATA[<h2 id="树的直径"><a href="#树的直径" class="headerlink" title="树的直径"></a>树的直径</h2><p>题目链接<a href="https://leetcode.com/problems/diameter-of-binary-tree/" target="_blank" rel="noopener">LeetCode 543. Diameter of Binary Tree</a></p>
+<a id="more"></a>
+
+<blockquote>
+<p>题目中定义二叉树直径为二叉树中任意两个节点间的最长距离</p>
+</blockquote>
+<ul>
+<li><p>从底到上（避免子树高度的重复计算）依次计算通过每个子树跟节点p的最长路径，即$p.length=max(height(p.left), height(p.right))+1$ 取所有p最大值即</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> res;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">diameterOfBinaryTree</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode* u)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!u) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> l = dfs(u-&gt;left);</span><br><span class="line">        <span class="keyword">int</span> r = dfs(u-&gt;right);</span><br><span class="line">        res = <span class="built_in">max</span>(res, l + r);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(l, r) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>树</tag>
+        <tag>Easy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 110. Balanced Binary Tree</title>
     <url>/2020/05/06/LeetCode-110-Balanced-Binary-Tree/</url>
     <content><![CDATA[<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>题目链接<a href="https://leetcode.com/problems/balanced-binary-tree/description/" target="_blank" rel="noopener">LeetCode 110. Balanced Binary Tree</a></p>
@@ -81,27 +85,23 @@
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 543. Diameter of Binary Tree</title>
-    <url>/2020/05/06/LeetCode-543-Diameter-of-Binary-Tree/</url>
-    <content><![CDATA[<h2 id="树的直径"><a href="#树的直径" class="headerlink" title="树的直径"></a>树的直径</h2><p>题目链接<a href="https://leetcode.com/problems/diameter-of-binary-tree/" target="_blank" rel="noopener">LeetCode 543. Diameter of Binary Tree</a></p>
-<a id="more"></a>
+    <title>Hello World</title>
+    <url>/2020/05/05/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<a id="more"></a> 
 
-<blockquote>
-<p>题目中定义二叉树直径为二叉树中任意两个节点间的最长距离</p>
-</blockquote>
-<ul>
-<li><p>从底到上（避免子树高度的重复计算）依次计算通过每个子树跟节点p的最长路径，即$p.length=max(height(p.left), height(p.right))+1$ 取所有p最大值即</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> res;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">diameterOfBinaryTree</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode* u)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!u) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> l = dfs(u-&gt;left);</span><br><span class="line">        <span class="keyword">int</span> r = dfs(u-&gt;right);</span><br><span class="line">        res = <span class="built_in">max</span>(res, l + r);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(l, r) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>树</tag>
-        <tag>Easy</tag>
-      </tags>
   </entry>
 </search>
