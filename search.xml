@@ -108,7 +108,7 @@
   <entry>
     <title>LeetCode 226. Invert Binary Tree</title>
     <url>/2020/05/07/LeetCode-226-Invert-Binary-Tree/</url>
-    <content><![CDATA[<p>题目链接：<a href="https://leetcode.com/problems/invert-binary-tree/description/" target="_blank" rel="noopener">LeetCode 226.Invert Binary Tree</a></p>
+    <content><![CDATA[<h2 id="翻转二叉树"><a href="#翻转二叉树" class="headerlink" title="翻转二叉树"></a>翻转二叉树</h2><p>题目链接：<a href="https://leetcode.com/problems/invert-binary-tree/description/" target="_blank" rel="noopener">LeetCode 226.Invert Binary Tree</a></p>
 <a id="more"></a>
 
 <ul>
@@ -120,6 +120,7 @@
 ]]></content>
       <categories>
         <category>LeetCode</category>
+        <category>树</category>
       </categories>
       <tags>
         <tag>树</tag>
