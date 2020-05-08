@@ -127,4 +127,32 @@
         <tag>Easy</tag>
       </tags>
   </entry>
+  <entry>
+    <title>LeetCode 617. Merge Two Binary Trees</title>
+    <url>/2020/05/07/LeetCode-617-Merge-Two-Binary-Trees/</url>
+    <content><![CDATA[<h2 id="合并二叉树"><a href="#合并二叉树" class="headerlink" title="合并二叉树"></a>合并二叉树</h2><p>题目链接：<a href="https://leetcode.com/problems/merge-two-binary-trees/" target="_blank" rel="noopener">LeetCode 617. Merge Two Binary Trees</a></p>
+<a id="more"></a>
+
+<blockquote>
+<p>题目中不要求保留原二叉树的结构，因此直接在t1或t2上修改即可</p>
+</blockquote>
+<ul>
+<li><p>一个简单的思路是直接先序遍历两棵树，将相同位置节点的权值加到其中一棵树上，同时合并形状</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">mergeTrees</span><span class="params">(TreeNode* t1, TreeNode* t2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(t1 == <span class="literal">nullptr</span>) </span><br><span class="line">            <span class="keyword">return</span> t2;</span><br><span class="line">        <span class="keyword">if</span>(t2 == <span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> t1;</span><br><span class="line">        t1-&gt;val += t2-&gt;val;</span><br><span class="line">        t1-&gt;left = mergeTrees(t1-&gt;left, t2-&gt;left);</span><br><span class="line">        t1-&gt;right = mergeTrees(t1-&gt;right, t2-&gt;right);</span><br><span class="line">        <span class="keyword">return</span> t1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也可以迭代解决这个问题，使用一个储存两棵树对应位置元素对的栈，每次取出栈顶元素进行合并</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">mergeTrees</span><span class="params">(TreeNode* t1, TreeNode* t2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!t1) <span class="keyword">return</span> t2;</span><br><span class="line">        <span class="built_in">stack</span>&lt;pair&lt;TreeNode*, TreeNode*&gt;&gt; sk;</span><br><span class="line">        sk.push(&#123;t1, t2&#125;);</span><br><span class="line">        <span class="keyword">while</span>(!sk.empty()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> p = sk.top();</span><br><span class="line">            sk.pop();</span><br><span class="line">            TreeNode* u1 = p.first, * u2 = p.second;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(!u2)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            u1-&gt;val += u2-&gt;val;   </span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(!u1-&gt;left)</span><br><span class="line">                u1-&gt;left = u2-&gt;left;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                sk.push(&#123;u1-&gt;left, u2-&gt;left&#125;);</span><br><span class="line">            <span class="keyword">if</span>(!u1-&gt;right)</span><br><span class="line">                u1-&gt;right = u2-&gt;right;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                sk.push(&#123;u1-&gt;right, u2-&gt;right&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> t1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+        <category>树</category>
+      </categories>
+      <tags>
+        <tag>树</tag>
+        <tag>Easy</tag>
+      </tags>
+  </entry>
 </search>
