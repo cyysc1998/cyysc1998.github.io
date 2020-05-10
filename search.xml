@@ -183,7 +183,7 @@
 <li>在整个二叉树的层序遍历中 ，某一子树的层序遍历序列中各节点相互顺序与整体层序遍历相同</li>
 </ol>
 </li>
-<li><p>过程如下：<br><img src="https://cyysc1998.github.io/images/inorder_sequence.png" alt=""></p>
+<li><p>过程如下：<br><img src="https://cyysc1998.github.io/images/inorder_sequence.jpg" alt=""></p>
 </li>
 <li><p>下面是一个示例程序：</p>
 </li>
