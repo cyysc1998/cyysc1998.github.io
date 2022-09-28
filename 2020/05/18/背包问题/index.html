@@ -24,7 +24,7 @@
 <meta property="og:description" content="记录背包问题的学习过程与解题思路，便于复习">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-18T12:20:16.000Z">
-<meta property="article:modified_time" content="2022-09-28T01:21:25.166Z">
+<meta property="article:modified_time" content="2022-09-28T10:59:30.386Z">
 <meta property="article:author" content="CYY">
 <meta property="article:tag" content="背包问题">
 <meta property="article:tag" content="Algorithm">
@@ -338,7 +338,7 @@
 <ul>
 <li><p>$f[i, j] &#x3D; max(f[i-1, j], f[i-1, j-v_i]+w_i+…+f[i-1,j-kv_i])+kw_i)$</p>
 <p>$f[i, j-v_i] &#x3D; max(f[i-1, j-v_i],f[i-1, j-2v_i]+w_i+…+f[i-1,j-kv_i])+kw_i)$</p>
-<p>将$f[i,j-v_i]+w_i$代入$f[i,j]$表达式。有$f[i, j] &#x3D; max(f[i-1, j],f[i][j-v_i]+w_i)$</p>
+<p>将$f[i,j-v_i]+w_i$代入$f[i,j]$表达式。有$f[i, j] &#x3D; max(f[i-1, j],f[i,j-v_i]+w_i)$</p>
 </li>
 <li><p>为实现上面的递推公式，将01背包问题中内层循环$j$顺序颠倒即可，关键部分如下。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; i ++) <br>  	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = v[i]; j &lt;= V; j ++) &#123;<br>  		f[j] = <span class="hljs-built_in">max</span>(f[j], f[j-v[i]] + w[i]);<br></code></pre></td></tr></table></figure>
